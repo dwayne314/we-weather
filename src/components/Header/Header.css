@@ -1,0 +1,5 @@
+.header-container {
+	width: 100%;
+	height: var(---header-height-section);
+	background-color: blue;
+}

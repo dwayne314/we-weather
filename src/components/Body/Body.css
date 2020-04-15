@@ -1,0 +1,5 @@
+.body-container {
+	width: 100%;
+	height: var(---body-height-section);
+	background-color: yellow;
+}
