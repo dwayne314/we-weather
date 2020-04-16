@@ -1,0 +1,25 @@
+.pick-location-container {
+	height: 30px;
+	width: 200px;
+	border-radius: 50px;
+	border: 1px solid black;
+	position: absolute;
+	right: var(---header-padding);
+	cursor: pointer;
+	display: flex;
+}
+
+.pick-location-text {
+	margin: auto;
+}
+
+.mobile-picker {
+	height: 30px;
+	width: 30px;
+	display: flex;
+}
+
+.mobile-pick-location-icon {
+	font-size: 20px;
+	margin: auto;
+}

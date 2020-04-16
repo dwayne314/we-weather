@@ -1,0 +1,53 @@
+.header-info-container {
+	height: var(---header-info-height);
+	width: var(---header-info-height);
+	min-height: var(---section-min-height);
+	min-width: var(---section-min-height);
+	border: 1px dotted black;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+.header-info-content {
+	height: 100%;
+	text-align: center;
+}
+
+.header-info-content > div {
+	margin: 13px 0px;
+}
+
+.header-info-temp {
+	font-size: 60px;
+}
+
+.header-info-status {
+	font-size: 30px;
+}
+
+.header-info-location {
+	font-size: 16px;
+}
+
+.header-info-timer {
+	height: 202px;
+	width: 3px;
+	display: inline-block;
+	position: absolute;
+	background-color: blue;
+	top: 20px;
+	visibility: hidden;
+}
+
+.timer-circle {
+	height: 5px;
+	width: 5px;
+	background-color: red;
+	border: 1px solid black;
+	border-radius: 50%;
+	display: inline-block;
+	position: absolute;
+	top: -2px;
+	left: -2px; 
+	visibility: visible;
+}

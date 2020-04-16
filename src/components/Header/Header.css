@@ -1,5 +1,10 @@
 .header-container {
 	width: 100%;
 	height: var(---header-height-section);
-	background-color: blue;
+	display: flex;
+	justify-content: space-between;
+	padding: var(---header-padding);
+	box-sizing: border-box;
+	position: relative;
+	min-height: 300px;
 }
