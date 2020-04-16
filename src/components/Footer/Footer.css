@@ -1,5 +1,24 @@
 .footer-container {
 	width: 100%;
 	height: var(---footer-height-section);
-	background-color: green;
+	background-color: #b6b6b6;
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer-section {
+	border: 1px solid white;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: center;
+}
+
+.footer-section-text {
+	text-align: center;
+}
+
+.footer-section-temp {
+	padding-top: var(---footer-temp-padding);
+	font-size: var(---footer-temp-font-size);
 }

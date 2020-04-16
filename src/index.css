@@ -12,4 +12,19 @@ body {
 	---footer-height-section: 20vh;
 	---header-padding: 20px;
 	---header-info-height: 25vh;
+	---footer-temp-font-size: 40px;
+	---footer-temp-padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+	:root {
+		---footer-temp-font-size: 30px;
+	}
+}
+
+@media screen and (max-height: 400px) {
+	:root {
+		---footer-temp-font-size: 30px;
+		---footer-temp-padding: 0;
+	}
 }
