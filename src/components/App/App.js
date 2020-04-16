@@ -1,7 +1,6 @@
 import React from 'react';
-import Header from '../Header/Header';
-import Body from '../Body/Body';
-import Footer from '../Footer/Footer';
+import Search from '../../pages/Search/Search';
+import Main from '../../pages/Main/Main';
 
 
 import './App.css';
@@ -10,9 +9,7 @@ import './App.css';
 const App = () => {
     return (
         <div className="app-container">
-        	<Header />
-        	<Body />
-        	<Footer />
+            <Main />
         </div>
     )
 };
