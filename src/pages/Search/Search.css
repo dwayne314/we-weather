@@ -1,0 +1,29 @@
+.search-container {
+	height: 100%;
+	display: flex;
+	box-sizing: border-box;
+	padding: var(---header-padding);
+	position: relative;
+
+}
+
+.search-form {
+	margin-top: 250px;
+	width: 100%;
+
+}
+
+.search-container input {
+	border: 0px;
+	border-bottom: 3px solid black;
+	width: 100%;
+	font-size: 30px;
+}
+
+.form-label-container {
+	font-size: 50px;
+}
+
+.form-input-container {
+	padding-top: 20px;
+}
