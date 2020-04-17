@@ -9,7 +9,7 @@ const Header = () => {
 	return (
 		<div className="header-container">
 			<HeaderInfo />
-			<PickLocation />
+			<PickLocation icon={'+'}/>
 		</div>
 	);
 }

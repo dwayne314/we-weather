@@ -9,6 +9,12 @@ import './App.css';
 const App = () => {
     return (
         <div className="app-container">
+            <Search />
+        </div>
+    )
+    // Main
+    return (
+        <div className="app-container">
             <Main />
         </div>
     )
