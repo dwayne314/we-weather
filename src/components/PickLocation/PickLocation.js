@@ -16,7 +16,7 @@ const PickLocation = (props) => {
 			<div className="mobile-pick-location-icon"> {icon} </div>
 		</div>
 	) : (
-		<div onClick={togglePickLocation} className="pick-location-container">
+		<div onClick={togglePickLocation} className="pick-location-container desktop-picker">
 			<div className="pick-location-text">
 				Change Location
 			</div>

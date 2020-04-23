@@ -1,7 +1,7 @@
 .footer-container {
 	width: 100%;
 	height: var(---footer-height-section);
-	background-color: #b6b6b6;
+	background-color: #ebebeb;
 	display: flex;
 	justify-content: space-between;
 }

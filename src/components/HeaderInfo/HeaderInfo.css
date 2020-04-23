@@ -3,9 +3,9 @@
 	width: var(---header-info-height);
 	min-height: var(---section-min-height);
 	min-width: var(---section-min-height);
-	border: 1px dotted black;
+	background-color: #ebebeb;
 	border-radius: 50%;
-	margin: 0 auto;
+	margin: auto;
 }
 
 .header-info-content {
