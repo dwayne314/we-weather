@@ -1,0 +1,25 @@
+.location-selector-container {
+	display: inline;
+	cursor: pointer;
+	position: absolute;
+}
+
+.location-selector-container > div {
+	font-size: var(---search-text-size);
+	margin: 10px 0px;
+	margin-left: 7px;
+	color: #b6b6b6;
+}
+
+.location-selector-container > div:hover {
+	color: green;
+}
+
+.location-selector-container > .active {
+	display: inline;
+	color: green;
+}
+
+.hidden {
+	display: none;
+}

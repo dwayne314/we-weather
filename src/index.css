@@ -14,6 +14,7 @@ body {
 	---header-info-height: 200px;
 	---footer-temp-font-size: 40px;
 	---footer-temp-padding: 20px;
+	---search-text-size: 40px;
 }
 
 @media screen and (max-width: 600px) {
@@ -24,7 +25,7 @@ body {
 
 @media screen and (max-height: 400px) {
 	:root {
-		---footer-temp-font-size: 30px;
+		---footer-temp-font-size: 40px;
 		---footer-temp-padding: 0;
 	}
 }
