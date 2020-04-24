@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCurrentLocation } from '../../redux/actions';
+import { getLocations, getCurrentLocationId } from '../../redux/selectors';
 
 import './LocationSelector.css';
 
@@ -6,41 +9,43 @@ const LocationSelector = () => {
 
 	const [selectorOpen, toggleSelectorOpen] = useState(false);
 	const locationRef = useRef(null);
+	const dispatch = useDispatch();
+	const locations = useSelector(getLocations);
+	const currentLocationId = useSelector(getCurrentLocationId);
 
-	const locations = [
-		{id: 1, name: 'Chicago', isActive: false},
-		{id: 2, name: 'Miami', isActive: false},
-		{id: 3, name: 'Boston', isActive: true},
-	]
-
-	const dropdownLocations = () => {
-		// dispatch clear active element but keep sort
+	const dropdownLocations = (evt) => {
 		toggleSelectorOpen(true);
 	}
 
-	const selectLocation = () => {
-		// dispatch update the current location
+	const selectLocation = (id) => {
+		if (id !== currentLocationId) dispatch(updateCurrentLocation(id));
 		toggleSelectorOpen(false);
 	}
 
 	const displayLocations = locations
+		.sort(location => location.id === currentLocationId ? -1 : 1)	
 		.map(location => {
 			return (
 				<div 
 					key={location.id} 
 					className={
-						`location${location.isActive ? 
-							' active' : 
+						`location${(location.id === currentLocationId && selectorOpen === false) ? 
+							' active' : // active locations active when selector is closed
 							!selectorOpen ? 
-								' hidden' : // inactive elements when selector is closed
+								' hidden' : // inactive locations hidden when selector is closed
 								''
 						}`}
-					onClick={location.isActive ? dropdownLocations : selectLocation}>
-					{ location.name }
+					onClick={
+						(location.id === currentLocationId && selectorOpen === false) ? 
+							dropdownLocations : 
+							selectLocation.bind(this, location.id)}
+				>
+					<span className="location-text">
+						{ location.name }
+					</span>
 				</div>
-			)
-		})
-		.sort(location => location.isActive ? 1 : -1)
+			);
+		});
 
 	useEffect(() => {
 		const handleClick = (evt) => {
@@ -50,18 +55,17 @@ const LocationSelector = () => {
 					toggleSelectorOpen(false);
 				}
 			}
-			catch {
-			}
-
+			catch {}
 		}
 		window.addEventListener('click', handleClick);
 		return () => window.removeEventListener('resize', handleClick);
-	}, [])
+	}, []);
+
 	return (
 		<div ref={locationRef} className="location-selector-container">
 			{ displayLocations}
 		</div>
-	)
+	);
 };
 
 export default LocationSelector;
