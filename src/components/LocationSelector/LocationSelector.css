@@ -11,7 +11,12 @@
 	color: #b6b6b6;
 }
 
-.location-selector-container > div:hover {
+.location:first-child {
+	margin-top: 0;
+}
+
+.location-text:hover {
+	border-bottom: 3px solid;
 	color: green;
 }
 
