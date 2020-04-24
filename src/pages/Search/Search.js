@@ -1,6 +1,6 @@
 import React from 'react';
 import PickLocation from '../../components/PickLocation/PickLocation';
-
+import LocationSelector from '../../components/LocationSelector/LocationSelector';
 import './Search.css';
 
 
@@ -10,11 +10,9 @@ const Search = () => {
 			<PickLocation icon={'X'} />
 
 			<form className="search-form">
-				<div className="form-label-container">
-					<label htmlFor="search">Search Location</label>
-				</div>
 				<div className="form-input-container">
-					<input id="search" type="text"></input>
+					<span className="form-text">Current City </span> 
+					<LocationSelector />
 				</div>
 			</form>
 		</div>
