@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { togglePage } from '../../redux/actions';
 
 import './PickLocation.css';
 
@@ -6,9 +8,10 @@ import './PickLocation.css';
 const PickLocation = (props) => {
 	const { icon } = props;
 	const isMobile = true;
+	const dispatch = useDispatch();
 
 	const togglePickLocation = () => {
-		console.log('toggling pick location')
+		dispatch(togglePage())
 	}
 
 	return isMobile ? (
