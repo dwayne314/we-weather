@@ -17,12 +17,12 @@
 
 .location-text:hover {
 	border-bottom: 3px solid;
-	color: green;
+	color: #18812F;
 }
 
 .location-selector-container > .active {
 	display: inline;
-	color: green;
+	color: #18812F;
 }
 
 .hidden {

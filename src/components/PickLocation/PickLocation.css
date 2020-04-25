@@ -9,6 +9,10 @@
 	display: flex;
 }
 
+.pick-location-container img {
+	height: inherit;
+}
+
 .pick-location-text {
 	margin: auto;
 }
@@ -18,6 +22,10 @@
 	width: 30px;
 	display: flex;
 	color: green;	
+}
+
+.mobile-picker {
+
 }
 
 .mobile-pick-location-icon {

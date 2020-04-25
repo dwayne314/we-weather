@@ -5,11 +5,12 @@ import PickLocation from '../PickLocation/PickLocation';
 import './Header.css'
 
 
-const Header = () => {
+const Header = (props) => {
+	const { pickLocationIcon } = props;
 	return (
 		<div className="header-container">
 			<HeaderInfo />
-			<PickLocation icon={'+'}/>
+			<PickLocation icon={pickLocationIcon}/>
 		</div>
 	);
 }

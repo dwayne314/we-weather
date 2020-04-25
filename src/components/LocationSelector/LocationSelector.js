@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateCurrentLocation } from '../../redux/actions';
+import { togglePage, updateCurrentLocation } from '../../redux/actions';
 import { getLocations, getCurrentLocation } from '../../redux/selectors';
 
 import './LocationSelector.css';
@@ -18,7 +18,10 @@ const LocationSelector = () => {
 	}
 
 	const selectLocation = (id) => {
-		if (id !== currentLocation.id) dispatch(updateCurrentLocation(id));
+		if (id !== currentLocation.id) {
+			dispatch(togglePage())
+			dispatch(updateCurrentLocation(id));
+		}
 		toggleSelectorOpen(false);
 	}
 
