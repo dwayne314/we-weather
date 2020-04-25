@@ -7,12 +7,7 @@ const formatDate = (dateObj) => {
 };
 
 const getLocationData = (location) => {
-	// location: (Chicago, Miami, Boston)
-	// todays temp
-	// next 5 days temp
-	// Descriptions for each day
 
-	// Generate weighted value from this array
 	const weatherPatterns = [
 		{displayText: 'Windy', frequency: 20, maxTemp: 100, minTemp: 0}, 
 		{displayText: 'Sunny', frequency: 50, maxTemp: 100, minTemp: 20}, 
@@ -53,7 +48,8 @@ const getLocationData = (location) => {
 			curDate = new Date(curDate.setDate(curDate.getDate() + 1));
 		}	
 		return {
-			location: location,
+			city: location.city,
+			state: location.state,
 			forecast: resp
 		};
 	}
@@ -61,8 +57,6 @@ const getLocationData = (location) => {
 	return {
 		init
 	}
-	
-
 }
 
 export const mockApiResponse = (location) => {

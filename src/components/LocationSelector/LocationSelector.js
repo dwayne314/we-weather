@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCurrentLocation } from '../../redux/actions';
-import { getLocations, getCurrentLocationId } from '../../redux/selectors';
+import { getLocations, getCurrentLocation } from '../../redux/selectors';
 
 import './LocationSelector.css';
 
@@ -11,37 +11,37 @@ const LocationSelector = () => {
 	const locationRef = useRef(null);
 	const dispatch = useDispatch();
 	const locations = useSelector(getLocations);
-	const currentLocationId = useSelector(getCurrentLocationId);
+	const currentLocation = useSelector(getCurrentLocation);
 
 	const dropdownLocations = (evt) => {
 		toggleSelectorOpen(true);
 	}
 
 	const selectLocation = (id) => {
-		if (id !== currentLocationId) dispatch(updateCurrentLocation(id));
+		if (id !== currentLocation.id) dispatch(updateCurrentLocation(id));
 		toggleSelectorOpen(false);
 	}
 
 	const displayLocations = locations
-		.sort(location => location.id === currentLocationId ? -1 : 1)	
+		.sort(location => location.id === currentLocation.id ? -1 : 1)	
 		.map(location => {
 			return (
 				<div 
 					key={location.id} 
 					className={
-						`location${(location.id === currentLocationId && selectorOpen === false) ? 
+						`location${(location.id === currentLocation.id && selectorOpen === false) ? 
 							' active' : // active locations active when selector is closed
 							!selectorOpen ? 
 								' hidden' : // inactive locations hidden when selector is closed
 								''
 						}`}
 					onClick={
-						(location.id === currentLocationId && selectorOpen === false) ? 
+						(location.id === currentLocation.id && selectorOpen === false) ? 
 							dropdownLocations : 
 							selectLocation.bind(this, location.id)}
 				>
 					<span className="location-text">
-						{ location.name }
+						{ location.city }
 					</span>
 				</div>
 			);

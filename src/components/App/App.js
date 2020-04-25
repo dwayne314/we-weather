@@ -11,12 +11,12 @@ import './App.css';
 const App = () => {
 	const page = useSelector(getPage);
 	const dispatch = useDispatch();
-	const currentLocation = useSelector(getCurrentLocation);
+	const {city, state} = useSelector(getCurrentLocation);
 
 	// Updates forecast only on a page refresh or location change
 	useEffect(() => {
-		fetchForecast(currentLocation.name)(dispatch);
-	}, [currentLocation.name, dispatch])
+		fetchForecast({city, state})(dispatch);
+	}, [city, state, dispatch])
     return (
         <div className="app-container">
             {page === 'Home' ? 

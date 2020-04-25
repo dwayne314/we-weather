@@ -4,11 +4,11 @@ const initialState = {
 	currentPage: 'Home',
 	currentLocationId: 1, 
 	locations: [
-		{id: 1, name: 'Chicago'},
-		{id: 2, name: 'Miami'},
-		{id: 3, name: 'Boston'},
+		{id: 1, city: 'Chicago', state: 'IL'},
+		{id: 2, city: 'Miami', state: 'FL'},
+		{id: 3, city: 'Boston', state: 'MA'},
 	],
-	forecast: {}
+	forecast: undefined
 };
 
 const rootReducer = (state=initialState, action) => {
