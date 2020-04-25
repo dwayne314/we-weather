@@ -1,4 +1,4 @@
-import { TOGGLE_PAGE, UPDATE_CURRENT_LOCATION } from './actions';
+import { TOGGLE_PAGE, UPDATE_CURRENT_LOCATION, UPDATE_FORECAST } from './actions';
 
 const initialState = {
 	currentPage: 'Home',
@@ -7,7 +7,8 @@ const initialState = {
 		{id: 1, name: 'Chicago'},
 		{id: 2, name: 'Miami'},
 		{id: 3, name: 'Boston'},
-	]
+	],
+	forecast: {}
 };
 
 const rootReducer = (state=initialState, action) => {
@@ -24,7 +25,14 @@ const rootReducer = (state=initialState, action) => {
 			return {
 				...state,
 				currentLocationId: locationId
-			}
+			};
+
+		case UPDATE_FORECAST:
+			const { forecast } = action.payload;
+			return {
+				...state,
+				forecast: forecast
+			};
 
 		default:
 			return state
