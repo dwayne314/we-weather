@@ -1,3 +1,9 @@
+import sunny from '../static/icons/sunny.svg';
+import windy from '../static/icons/windy.svg';
+import snowing from '../static/icons/snowing.svg';
+import raining from '../static/icons/raining.svg';
+import cloudy from '../static/icons/cloudy.svg';
+
 const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -9,11 +15,11 @@ const formatDate = (dateObj) => {
 const getLocationData = (location) => {
 
 	const weatherPatterns = [
-		{displayText: 'Windy', frequency: 20, maxTemp: 100, minTemp: 0}, 
-		{displayText: 'Sunny', frequency: 50, maxTemp: 100, minTemp: 20}, 
-		{displayText: 'Cloudy', frequency: 15, maxTemp: 100, minTemp: 0}, 
-		{displayText: 'Rainy', frequency: 10, maxTemp: 100, minTemp: 5}, 
-		{displayText: 'Snowing', frequency: 5, maxTemp: 35, minTemp: -20}
+		{displayText: 'Windy', frequency: 20, maxTemp: 100, minTemp: 0, icon:windy}, 
+		{displayText: 'Sunny', frequency: 50, maxTemp: 100, minTemp: 20, icon:sunny}, 
+		{displayText: 'Cloudy', frequency: 15, maxTemp: 100, minTemp: 0, icon:cloudy}, 
+		{displayText: 'Rainy', frequency: 10, maxTemp: 100, minTemp: 5, icon:raining}, 
+		{displayText: 'Snowing', frequency: 5, maxTemp: 35, minTemp: -20, icon:snowing}
 	];
 
 	const getWeatherFrequency = () => {
@@ -32,11 +38,17 @@ const getLocationData = (location) => {
 		return temp;
 	}
 
+	const getIcon = (pattern) => {
+		const icon = weatherPatterns.find(option => option.displayText === pattern).icon;
+		return icon;
+	}
+
 	const getRandomTempRecord = (weatherFrequency, date) => {
 		const randomPattern = getRandomInt(0, weatherFrequency.length - 1);
 		const weatherPattern = weatherFrequency[randomPattern];
 		const temp = getRandomTemp(weatherPattern);
-		return {weatherPattern, temp, date: formatDate(date)};
+		const icon = getIcon(weatherPattern);
+		return {weatherPattern, temp, date: formatDate(date), icon};
 	}
 
 	const init = ({records=6}) => {

@@ -16,13 +16,14 @@
 }
 
 .location-text:hover {
-	border-bottom: 3px solid;
+	border-bottom: 3px solid #18812F;
 	color: #18812F;
 }
 
 .location-selector-container > .active {
 	display: inline;
 	color: #18812F;
+	border-bottom: 3px solid #18812F;
 }
 
 .hidden {

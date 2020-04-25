@@ -30,7 +30,7 @@ const HeaderInfo = () => {
 				<div className="header-info-status">
 					{`${todaysStatus}`}
 				</div>
-				<div className="header-info-location">
+				<div className="header-sub-header header-info-location">
 					{forecastLocation}
 				</div>
 			</div>

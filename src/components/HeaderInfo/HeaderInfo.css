@@ -6,19 +6,23 @@
 	background-color: #ebebeb;
 	border-radius: 50%;
 	margin: auto;
+		display: flex;
+	justify-content: center;
+
+
 }
 
 .header-info-content {
-	height: 100%;
 	text-align: center;
 }
 
 .header-info-content > div {
-	margin: 13px 0px;
+	margin: 0 auto;
 }
 
 .header-info-temp {
 	font-size: 60px;
+	margin-top: 25px !important;
 }
 
 .header-info-status {
@@ -27,4 +31,8 @@
 
 .header-info-location {
 	font-size: 16px;
+}
+
+.header-sub-header {
+	margin-top: 10px !important;
 }

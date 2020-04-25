@@ -1,12 +1,7 @@
 .pick-location-container {
-	height: 30px;
-	width: 200px;
-	border-radius: 50px;
 	position: absolute;
-	background-color: #ebebeb;
 	right: var(---header-padding);
 	cursor: pointer;
-	display: flex;
 }
 
 .pick-location-container img {

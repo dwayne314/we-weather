@@ -2,9 +2,3 @@
 	width: 100%;
 	height: var(---body-height-section);
 }
-
-#line-chart {
-	/*height: 100%;
-	box-sizing: border-box;
-		height: var(---body-height-section);*/
-}

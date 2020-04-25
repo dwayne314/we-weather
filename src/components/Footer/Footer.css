@@ -1,6 +1,7 @@
 .footer-container {
 	width: 100%;
 	height: var(---footer-height-section);
+	min-height: 150px;
 	background-color: #ebebeb;
 	display: flex;
 	justify-content: space-between;
@@ -10,8 +11,11 @@
 	border: 1px solid white;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 10px;
+	padding: 5px;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
 .footer-section-text {
@@ -19,6 +23,12 @@
 }
 
 .footer-section-temp {
-	padding-top: var(---footer-temp-padding);
+	/*padding-top: var(---footer-temp-padding);*/
 	font-size: var(---footer-temp-font-size);
+}
+
+.footer-icon > img {
+	height: 40px;
+	width: 40px;
+
 }
