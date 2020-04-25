@@ -32,7 +32,7 @@ const Footer = () => {
                     {`${prediction.temp}°`}
                 </div>
                 <div className="footer-icon">
-                    <img src={prediction.icon}></img>
+                    <img src={prediction.icon} alt={prediction.alt}></img>
                 </div>
             </div>
         );
@@ -41,7 +41,6 @@ const Footer = () => {
     useEffect(() => {
         if (forecast) {
             setUpcomingForecast(forecast.forecast.slice(1, forecast.length))
-            console.log(forecast)
         }
     }, [forecast]);
 

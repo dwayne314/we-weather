@@ -15,11 +15,11 @@ const formatDate = (dateObj) => {
 const getLocationData = (location) => {
 
 	const weatherPatterns = [
-		{displayText: 'Windy', frequency: 20, maxTemp: 100, minTemp: 0, icon:windy}, 
-		{displayText: 'Sunny', frequency: 50, maxTemp: 100, minTemp: 20, icon:sunny}, 
-		{displayText: 'Cloudy', frequency: 15, maxTemp: 100, minTemp: 0, icon:cloudy}, 
-		{displayText: 'Rainy', frequency: 10, maxTemp: 100, minTemp: 5, icon:raining}, 
-		{displayText: 'Snowing', frequency: 5, maxTemp: 35, minTemp: -20, icon:snowing}
+		{displayText: 'Windy', frequency: 20, maxTemp: 70, minTemp: -10, icon:windy, alt: 'windy'}, 
+		{displayText: 'Sunny', frequency: 50, maxTemp: 100, minTemp: 20, icon:sunny, alt: 'sunny'}, 
+		{displayText: 'Cloudy', frequency: 15, maxTemp: 80, minTemp: 20, icon:cloudy, alt: 'cloudy'}, 
+		{displayText: 'Rainy', frequency: 10, maxTemp: 90, minTemp: 30, icon:raining, alt: 'raining'}, 
+		{displayText: 'Snowing', frequency: 5, maxTemp: 35, minTemp: -20, icon:snowing, alt: 'snowing'}
 	];
 
 	const getWeatherFrequency = () => {
@@ -51,13 +51,32 @@ const getLocationData = (location) => {
 		return {weatherPattern, temp, date: formatDate(date), icon};
 	}
 
+	const isTempValid = (lastTemp, currentTemp, threshold) => {
+		return Math.abs(lastTemp - currentTemp) < threshold;
+	}
+
 	const init = ({records=6}) => {
 		let resp = [];
-		const weatherFrequency = getWeatherFrequency();
 		let curDate = new Date();
+		const weatherFrequency = getWeatherFrequency();
+		
 		for (let i=0; i < records; i++) {
-			resp.push(getRandomTempRecord(weatherFrequency, curDate));
-			curDate = new Date(curDate.setDate(curDate.getDate() + 1));
+			const newRandomTempRecord = getRandomTempRecord(weatherFrequency, curDate);
+			
+			if (resp.length) {
+				const lastTempRecord = resp[resp.length - 1];
+				
+				if (isTempValid(lastTempRecord.temp, newRandomTempRecord.temp, 10)) {
+					resp.push(newRandomTempRecord);
+					curDate = new Date(curDate.setDate(curDate.getDate() + 1));
+				}
+				else i--;
+			}
+			else {
+				resp.push(newRandomTempRecord);
+				curDate = new Date(curDate.setDate(curDate.getDate() + 1));
+			}
+			
 		}	
 		return {
 			city: location.city,

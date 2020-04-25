@@ -16,7 +16,7 @@ const PickLocation = (props) => {
 
 	return isMobile ? (
 		<div onClick={togglePickLocation} className="pick-location-container mobile-picker">
-			<img src={icon}/>
+			<img src={icon} alt='togglePageIcon'/>
 		</div>
 	) : (
 		<div onClick={togglePickLocation} className="pick-location-container desktop-picker">
