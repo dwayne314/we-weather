@@ -74,6 +74,16 @@ const Body = () => {
 		        .attr("cy", function(d) { return yScale(d) })
     		    .attr("r", 5);
 
+		svg.selectAll(".text-background")
+		    .data(forecastedTemps)
+		    .enter()
+		        .append("rect")    
+		        .attr('x',function(d, i) { return xScale(i) - 12})
+		        .attr("y", function(d) { return yScale(d) - 27 })    
+		        .attr('height', '15px')
+		        .attr('width', '23px')
+		        .attr('fill', 'white')
+
 		svg.selectAll(".chart-text")
 		    .data(forecastedTemps)
 		    .enter()
